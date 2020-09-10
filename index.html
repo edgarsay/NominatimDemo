@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- leaflet CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+
+    <!-- leaflet JS-->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+    <!-- style -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- script -->
+    <script src="./search.js"></script>
+
+    <title>Nominatim - Demo</title>
+</head>
+
+<body class="text-center">
+    <form class="form-signin" id="form" onsubmit="return false;">
+        <img class="mb-4" src="./search.svg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Find Everything</h1>
+        <div id="map"></div>
+        <input type="text" id="q" class="form-control" placeholder="Type a Address" required autofocus>
+        <button class="btn btn-lg btn-primary btn-block mt-2 mb-5" type="submit" onclick="search()">Search</button>
+        <!-- form -->
+        <div id="results" class="list-group" style="display: none;"></div>
+        <!-- list group -->
+    </form>
+</body>
+
+</html>
