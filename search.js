@@ -13,13 +13,17 @@ function _httpGet(theUrl) {
 function show(data) {
     'use strict';
     var listGroup = document.getElementById("results");
+    listGroup.innerHTML = '';
     if (data) {
         data.features.forEach(function ({
-            properties
+            properties,
+            geometry
         }) {
-            var address = properties.display_name.split(',');
+            var address = properties.display_name.split(','),
+            link = '"https://www.openstreetmap.org/#map=14/' + geometry.coordinates.reverse().join('/') + '"';
             listGroup.innerHTML += '' +
-                '<a class="list-group-item list-group-item-action flex-column align-items-start">' +
+                '<a _blank="true" href='+ link +
+                ' class="list-group-item list-group-item-action flex-column align-items-start">' +
                 '<div class="d-flex w-100 justify-content-center">' +
                 '<h5 class="mb-1">' + address.pop() + '</h5>' +
                 '</div>' +
