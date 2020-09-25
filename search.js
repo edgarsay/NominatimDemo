@@ -20,9 +20,10 @@ function show(data) {
             geometry
         }) {
             var address = properties.display_name.split(','),
-            link = '"https://www.openstreetmap.org/#map=14/' + geometry.coordinates.reverse().join('/') + '"';
+                link = '"https://www.openstreetmap.org/#map=14/' +
+                    geometry.coordinates.reverse().join('/') + '"';
             listGroup.innerHTML += '' +
-                '<a _blank="true" href='+ link +
+                '<a _blank="true" href=' + link +
                 ' class="list-group-item list-group-item-action flex-column align-items-start">' +
                 '<div class="d-flex w-100 justify-content-center">' +
                 '<h5 class="mb-1">' + address.pop() + '</h5>' +
@@ -39,7 +40,7 @@ function search() {
     var input = document.querySelector('#q').value,
         http = new XMLHttpRequest(),
         url = 'https://nominatim.openstreetmap.org/search?q=' + input + '&format=geojson';
-
+        url = encodeURI(url);
     http.addEventListener('load', function () {
         data = http.response;
         show(data);
